@@ -7,7 +7,7 @@
  */
 
 include "header.php";
-include "dbConnect.php";
+require "dbConnect.php";
 print_r($_POST);
 /*
 echo htmlspecialchars($_GET["Vorname"]);
@@ -56,7 +56,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Prüfen ob ein Fehler aufgetreten ist beim Bildupload
 if ($uploadOk == 0) {
-    echo "Das Bild wird leider nicht hochgeladen";
+    echo "Das Bild wurde leider nicht hochgeladen";
 // Wenn Bild in Ordnung, dieses Hochladen
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -78,10 +78,9 @@ if ($uploadOk == 0) {
         }
         echo $Bild;
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Beim hochladen des Fotos ist ein Fehler aufgetreten";
     }
 }
-
 
 
 //Datenbank Verbingung schliessen
